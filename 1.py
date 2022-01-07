@@ -5,6 +5,9 @@
 #   - Додати документування в клас (можете почитати цю статтю: https://realpython.com/documenting-python-code/ )
 
 class Calc(object):
+    """Клас для виконання математичних операцій, для використання треба викликати методи minus(), plus(), """ \
+    """miltiply(), divide_up() та передати у якості аргументів перше та друге число """
+
     last_result = None
 
     def minus(self, first, second):
@@ -20,8 +23,11 @@ class Calc(object):
         print(self.last_result)
 
     def divide_up(self, first, second):
-        self.last_result = first / second
-        print(self.last_result)
+        if second != 0:
+            self.last_result = first / second
+            print(self.last_result)
+        else:
+            print("Поділити на нуль неможливо")
 
 
 calculate = Calc()
@@ -31,6 +37,4 @@ calculate.multiply(7, 9)
 calculate.divide_up(8, 5)
 
 print(Calc.last_result)
-
-Calc.__doc__ = "Клас для виконання математичних операцій, для використання треба викликати методи minus(), plus(), " \
-               "miltiply(), divide_up() та передати у якості аргументів перше та друге число "
+print(Calc.__doc__)

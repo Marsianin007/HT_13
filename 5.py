@@ -1,6 +1,5 @@
 # 5. Створіть за допомогою класів та продемонструйте свою реалізацію шкільної бібліотеки(включіть фантазію).
-
-from datetime import date
+import datetime
 
 
 class Library(object):
@@ -38,15 +37,16 @@ class Library(object):
             print("Максимум 3 роки!")
             raise SystemExit
 
-        date_now = str(date.today())
-        year = int(date_now[0:4]) + int(time_to_take)
-        month = int(date_now[5:7])
-        day = int(date_now[8:10])
+        date_now = datetime.date.today()
+
+        year = date_now.year + int(time_to_take)
+        month = date_now.month
+        day = date_now.day
         print(f"Чекаємо на Вас до {year}-{month}-{day} ")
 
 
 x = Library()
-x.add_book()
 x.look_all_books()
+x.add_book()
 x.search_book()
 x.take_book()
